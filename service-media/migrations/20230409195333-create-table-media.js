@@ -20,6 +20,10 @@ module.exports = {
       created_at:{
         type:Sequelize.DATE,
         allowNull:false
+      },
+      update_at:{
+        type:Sequelize.DATE,
+        allowNull:false
       }
     });
   },
