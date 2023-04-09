@@ -13,6 +13,10 @@ module.exports = {
         autoIncrement:true,
         allowNull:false
       },
+      image: {
+        type:Sequelize.STRING,
+        allowNull:false
+      },
     });
   },
 
