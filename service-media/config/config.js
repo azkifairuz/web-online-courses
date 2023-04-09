@@ -8,21 +8,21 @@ const {
 } = process.env
 module.exports ={
   "development": {
-    "username": DB_NAME,
+    "username": DB_UNAME,
     "password": DB_PSWD,
     "database": DB_NAME,
     "host": DB_HOSTNAME,
     "dialect": "mysql"
   },
   "test": {
-    "username": DB_NAME,
+    "username": DB_UNAME,
     "password": DB_PSWD,
     "database": DB_NAME,
     "host": DB_HOSTNAME,
     "dialect": "mysql"
   },
   "production": {
-    "username": DB_NAME,
+    "username": DB_UNAME,
     "password": DB_PSWD,
     "database": DB_NAME,
     "host": DB_HOSTNAME,
