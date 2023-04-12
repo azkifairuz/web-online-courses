@@ -20,6 +20,8 @@ module.exports = (sequelize,DataTypes) => {
             type:DataTypes.DATE,
             allowNull:false
           }
+        },{
+            tableName:"media"
         });
         return Media
     }
