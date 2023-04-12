@@ -1,5 +1,5 @@
 module.exports = (sequelize,DataTypes) => {
-    const Media = sequelize.define('media', {
+    const Media = sequelize.define('Media', {
         id: {
             type: DataTypes.INTEGER,
             primaryKey:true,
@@ -11,7 +11,7 @@ module.exports = (sequelize,DataTypes) => {
             allowNull:false
           },
           createdAt:{
-            field: 'update_at',
+            field: 'created_at',
             type:DataTypes.DATE,
             allowNull:false
           },
