@@ -23,7 +23,7 @@ router.post('/',(req,res)=>{
     const filename = filepath.split("\\").pop().split("/").pop();
 
     const media = await Media.create({image:`image/${filename}`})
-    return res.send().json({
+    return res.json({
       status:"success",
       data:{
         id: media.id,
