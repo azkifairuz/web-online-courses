@@ -1,9 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('media');
-});
+router.post('/',(req,res)=>{
+  res.send("tes")
+})
 
 module.exports = router;
