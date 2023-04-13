@@ -7,6 +7,9 @@ module.exports = async (req,res)=>{
         const media = await api.post(`${URL_SERVICE_MEDIA}/media`,req.body);
         return res.json(media.data)
     } catch (error) {
+        if (error.code === 'ECONNREFUSED') {
+            return res.status(500).json({status:'error',massage : 'service unvailable'})
+        }
         const {status,data} = error.response;
         return res.status(status).json(data)
     }
