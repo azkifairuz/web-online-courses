@@ -1,10 +1,10 @@
-var express = require('express');
-var router = express.Router();
-const {APP_NAME} = process.env;
+const express = require('express');
+const router = express.Router();
+const handlerMedia = require('./handler/media')
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('media');
-});
+router.get('/', handlerMedia.getAll);
 
+router.post('/',handlerMedia.create)
+router.delete('/:id',handlerMedia.destroy)
 module.exports = router;
