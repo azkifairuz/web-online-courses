@@ -3,6 +3,6 @@ const router = express.Router();
 const mediaHandler = require('./handler/media')
 
 /* GET users listing. */
-router.post('/',mediaHandler.create);
+router.post('/',mediaHandler.create());
 
 module.exports = router;
