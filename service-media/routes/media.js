@@ -3,7 +3,7 @@ const router = express.Router();
 const isBase64 = require("is-base64")
 const base64Img = require("base64-img")
 const { Media } = require('../models')
-
+const fs = require('fs')
 //get
 router.get('/',async (req,res)=>{
   const media = await Media.findAll({
@@ -52,5 +52,32 @@ router.post('/',(req,res)=>{
   })
 
 })
+router.delete('/:id',async (req,res)=>{
+  const id = req.params.id
 
+  const media = await Media.findByPk(id);
+
+  if (!media) {
+    return res.status(404).json({
+      status:"error",
+      message:"image not found"
+    })
+  }
+
+  fs.unlink(`./public/${media.image}`,async (err)=>{
+    if (err) {
+      return res.status(400).json({
+        status:"error",
+        massage:err.message
+      })
+    }
+
+    await media.destroy();
+
+    return res.json({
+      status:"succes",
+      massage:"image deleted"
+    })
+  })
+})
 module.exports = router;
