@@ -3,6 +3,19 @@ const router = express.Router();
 const isBase64 = require("is-base64")
 const base64Img = require("base64-img")
 const { Media } = require('../models')
+
+//get
+router.get('/',async (req,res)=>{
+  const media = await Media.findAll()
+    return res.json(
+      {
+        status:"succes",
+        data:media
+      }
+    )
+})
+
+//post
 router.post('/',(req,res)=>{
   const image = req.body.image;
 
@@ -22,7 +35,7 @@ router.post('/',(req,res)=>{
     }
     const filename = filepath.split("\\").pop().split("/").pop();
 
-    const media = await Media.create({image:`image/${filename}`})
+    const media = await Media.create({image:`images/${filename}`})
     return res.json({
       status:"success",
       data:{
