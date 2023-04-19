@@ -3,12 +3,49 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    /**
-     * Add altering commands here.
-     *
-     * Example:
-     * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
-     */
+    await queryInterface.createTable('users',
+    {
+      id: {
+        type:Sequelize.INTEGER(36),
+        primaryKey:true,
+        autoIncrement:true,
+        allowNull:false
+      },
+      name : {
+        type:Sequelize.STRING(30),
+        allowNull:false
+      },
+      profession: {
+        type:Sequelize.STRING(50),
+        allowNull:true
+      },
+      avatar:{
+        type:Sequelize.STRING,
+        allowNull:true
+      },
+      role:{
+        type:Sequelize.ENUM,
+        values:['admin','student'],
+        allowNull:false
+      },
+      email:{
+        type:Sequelize.STRING,
+        allowNull:false
+      },
+      password:{
+        type:Sequelize.STRING,
+        allowNull:false
+      },
+      created_At:{
+        type:Sequelize.DATE,
+        allowNull:false
+      },
+      updated_At:{
+        type:Sequelize.DATE,
+        allowNull:false
+      }
+    }
+    )
   },
 
   async down (queryInterface, Sequelize) {
