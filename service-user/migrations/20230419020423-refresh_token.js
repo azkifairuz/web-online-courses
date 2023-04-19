@@ -27,7 +27,7 @@ module.exports = {
         allowNull: false,
       },
     });
-    await queryInterface.addConstraint('refresh_token',
+    await queryInterface.addConstraint('refresh_tokens',
     {
       type:'foreign key',
       name:'USER_ID_FK',
