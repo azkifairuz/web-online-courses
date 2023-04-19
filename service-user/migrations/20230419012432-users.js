@@ -45,15 +45,15 @@ module.exports = {
         allowNull:false
       }
     }
-    )
+    );
+    await queryInterface.addConstraint('users',{
+      type:'unique',
+      fields:['email'],
+      name:"UNIQUE_USERS_EMAIL"
+    })
   },
 
   async down (queryInterface, Sequelize) {
-    /**
-     * Add reverting commands here.
-     *
-     * Example:
-     * await queryInterface.dropTable('users');
-     */
+    await queryInterface.dropTable('users');
   }
 };
