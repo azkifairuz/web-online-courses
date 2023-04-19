@@ -6,7 +6,7 @@ module.exports = {
     await queryInterface.createTable('users',
     {
       id: {
-        type:Sequelize.INTEGER(36),
+        type:Sequelize.INTEGER,
         primaryKey:true,
         autoIncrement:true,
         allowNull:false
@@ -36,11 +36,11 @@ module.exports = {
         type:Sequelize.STRING,
         allowNull:false
       },
-      created_At:{
+      created_at:{
         type:Sequelize.DATE,
         allowNull:false
       },
-      updated_At:{
+      updated_at:{
         type:Sequelize.DATE,
         allowNull:false
       }
